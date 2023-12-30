@@ -11,7 +11,6 @@ int main() {
     WSADATA wsaData; //This structure holds details about the Windows Sockets implementation. It needs to be initialized using the WSAStartup function.
     SOCKET clientSocket; //hold the socket descriptor for the client.
     struct sockaddr_in serverAddr; //server's address information.
-    char message[1024];
 
     // Initialize Winsock library, version makeword2,2, pointer
     if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
