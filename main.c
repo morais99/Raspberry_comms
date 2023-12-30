@@ -2,7 +2,7 @@
 #include <winsock2.h> // which provides networking functionality on Windows. crucial for using the Windows Sockets API (Winsock).
 #include <windows.h>
 #include <conio.h> // For _kbhit and _getch
-#pragma comment(lib, "ws2_32.lib")
+#pragma comment(lib, "ws2_32.lib") //instructs the linker to link against the ws2_32.lib library, which is necessary for Winsock functionality.
 
 #define PORT 12345
 #define SERVER_IP "192.168.1.93"
