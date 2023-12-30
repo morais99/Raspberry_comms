@@ -61,7 +61,7 @@ int main() {
         printf("Received message: %s", buffer);
     }
     //The loop breaks when recv returns a value less than or equal to 0, indicating that the client has closed the connection or an error has occurred.
-
+    //.
     // Close the sockets
     close(client_socket);
     close(server_socket);
