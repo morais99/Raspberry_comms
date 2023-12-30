@@ -50,15 +50,19 @@ int main() {
     }
 
     printf("Connection accepted\n");
-
+    printf("ready\n");
     // Receive and print data from the client
-    while (1) {
+    while (1) {        
         ssize_t bytes_received = recv(client_socket, buffer, sizeof(buffer), 0);
-        if (bytes_received <= 0) {
+        if (bytes_received < 0) {
+            perror("Error in recv");
+            break;
+        }else if(bytes_received == 0){
+            printf("Connection closed by client\n");
             break;
         }
         buffer[bytes_received] = '\0'; //Null-terminates the received data to treat it as a string.
-        printf("Received message: %s", buffer);
+        printf("Received message: %s\n", buffer);
     }
     //The loop breaks when recv returns a value less than or equal to 0, indicating that the client has closed the connection or an error has occurred.
     //.
@@ -68,3 +72,4 @@ int main() {
 
     return 0;
 }
+
